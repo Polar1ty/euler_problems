@@ -1,14 +1,19 @@
-i = 3
-shit_indicator = 0
-simple_nums = [2]
-while len(simple_nums) < 2000001:
+# Summation of primes
+import time
+from math import sqrt
+
+start = time.time()
+
+n = 2000000
+lst = []
+for i in range(2, n+1):
     print(i)
-    for k in range(2, i):
-        if i % k == 0:
-            shit_indicator = 1
+    for j in lst:
+        if i % j == 0:
             break
-    if shit_indicator != 1:
-        simple_nums.append(i)
-    i += 1
-    shit_indicator = 0
-print(sum(simple_nums))
+    else:
+        lst.append(i)
+print(sum(lst))
+
+end = time.time()
+print('Time of execution = ' + str(end - start))
